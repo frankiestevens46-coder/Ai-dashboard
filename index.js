@@ -105,3 +105,10 @@ const PORT = process.env.PORT;
 app.listen(PORT, "0.0.0.0", () => {
 console.log("VERTIX RUNNING ON " + PORT);
 });
+
+app.get("/envcheck", (req, res) => {
+  res.json({
+    port: process.env.PORT,
+    openrouter_key: process.env.OPENROUTER_KEY ? "SET" : "MISSING"
+  });
+});
